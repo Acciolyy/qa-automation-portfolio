@@ -1,0 +1,12 @@
+# Ambiente virtual
+.venv/
+
+# Banco local
+db.sqlite3
+
+# Caches do Python
+__pycache__/
+*.pyc
+
+# Segredos (pra frente)
+.env
