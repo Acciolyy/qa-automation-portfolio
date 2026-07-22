@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Produtos</title>
-</head>
+{% block titulo %}Produtos{% endblock %}
 
-<body>
-    <h1>Produtos</h1>
-    <p><a href="{% url 'produto_create' %}">Novo produto</a></p>
-    <form method="get">
+{% block conteudo %}
+<div class="card">
+    <div class="cabecalho-lista">
+        <h1>Produtos</h1>
+        <a href="{% url 'produto_create' %}" class="btn">Novo produto</a>
+    </div>
+
+    <form method="get" class="busca">
         <input type="text" name="q" value="{{ q }}" placeholder="Buscar por nome">
         <button type="submit">Buscar</button>
-        <a href="{% url 'produto_list' %}">Limpar</a>
+        <a href="{% url 'produto_list' %}" class="btn btn-secundario">Limpar</a>
     </form>
-    <table border="1">
+
+    <table>
         <thead>
             <tr>
                 <th>Nome</th>
@@ -29,10 +29,10 @@
             {% for produto in produtos %}
             <tr>
                 <td>{{ produto.nome }}</td>
-                <td>{{ produto.preco }}</td>
+                <td>R$ {{ produto.preco }}</td>
                 <td>{{ produto.estoque }}</td>
-                <td>{{ produto.criado_em }}</td>
-                <td>
+                <td>{{ produto.criado_em|date:"d/m/Y H:i" }}</td>
+                <td class="acoes">
                     <a href="{% url 'produto_update' produto.pk %}">Editar</a>
                     <a href="{% url 'produto_delete' produto.pk %}">Excluir</a>
                 </td>
@@ -44,9 +44,5 @@
             {% endfor %}
         </tbody>
     </table>
-
-    <p><a href="{% url 'home' %}">Voltar para a home</a></p>
-
-</body>
-
-</html>
+</div>
+{% endblock %}

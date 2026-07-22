@@ -1,0 +1,181 @@
+:root {
+    --cor-texto: #1f2933;
+    --cor-borda: #d8dee4;
+    --cor-primaria: #2563eb;
+    --cor-erro: #b91c1c;
+    --cor-fundo-suave: #f6f8fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--cor-texto);
+    background: var(--cor-fundo-suave);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* ---- topo ---- */
+.topo {
+    background: #fff;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.topo .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.topo nav a {
+    margin-right: 1rem;
+}
+
+/* ---- cartão ---- */
+.card {
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+/* ---- tabela ---- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+th {
+    background: var(--cor-fundo-suave);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+tbody tr:hover {
+    background: #fafbfc;
+}
+
+/* ---- formulários ---- */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font: inherit;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 1px;
+}
+
+label {
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+}
+
+.errorlist {
+    color: var(--cor-erro);
+    list-style: none;
+    padding: 0;
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+/* ---- botões e links ---- */
+button,
+.btn {
+    background: var(--cor-primaria);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+.btn:hover {
+    filter: brightness(0.92);
+}
+
+.btn-secundario {
+    background: transparent;
+    color: var(--cor-primaria);
+    border: 1px solid var(--cor-borda);
+}
+
+.btn-perigo {
+    background: var(--cor-erro);
+}
+
+a {
+    color: var(--cor-primaria);
+}
+
+.acoes a {
+    margin-right: 0.5rem;
+}
+
+.cabecalho-lista {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.busca {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.busca input {
+    max-width: 320px;
+}
+
+.card-estreito {
+    max-width: 420px;
+    margin: 2rem auto;
+}
+
+.rodape-form {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}

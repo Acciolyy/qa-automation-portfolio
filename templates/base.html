@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}QA Study{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <header class="topo">
+        <div class="container">
+            <strong>QA Study</strong>
+            {% if user.is_authenticated %}
+            <nav>
+                <a href="{% url 'home' %}">Início</a>
+                <a href="{% url 'produto_list' %}">Produtos</a>
+            </nav>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-secundario">Sair ({{ user.username }})</button>
+            </form>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="container">
+        {% block conteudo %}{% endblock %}
+    </main>
+</body>
+
+</html>

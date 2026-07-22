@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre-se</title>
-</head>
+{% block titulo %}Cadastre-se{% endblock %}
 
-<body>
+{% block conteudo %}
+<div class="card card-estreito">
     <h1>Cadastre-se</h1>
-    <form method='post'>
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type='submit'>Cadastrar</button>
-
+        <div class="rodape-form">
+            <button type="submit">Cadastrar</button>
+        </div>
     </form>
-
-
-</body>
-
-</html>
+    <p>Já tem conta? <a href="{% url 'login' %}">Entrar</a></p>
+</div>
+{% endblock %}

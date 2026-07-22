@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Inválido</title>
-</head>
+{% block titulo %}Link inválido{% endblock %}
 
-<body>
+{% block conteudo %}
+<div class="card card-estreito">
     <h1>Link de ativação inválido ou expirado</h1>
-    <p>Faça o cadastro novamente para receber um novo link</p>
-</body>
-
-</html>
+    <p>Faça o cadastro novamente para receber um novo link.</p>
+    <p><a href="{% url 'signup' %}" class="btn">Ir para o cadastro</a></p>
+</div>
+{% endblock %}

@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início</title>
-</head>
+{% block titulo %}Início{% endblock %}
 
-<body>
+{% block conteudo %}
+<div class="card">
     <h1>Olá, {{ user.username }}!</h1>
-
-    <p><a href="{% url 'produto_list' %}">Ver produtos</a></p>
-
-    <form method="post" action="{% url 'logout' %}">
-        {% csrf_token %}
-        <button type="submit">Sair</button>
-    </form>
-</body>
-
-</html>
+    <p><a href="{% url 'produto_list' %}" class="btn">Ver produtos</a></p>
+</div>
+{% endblock %}
