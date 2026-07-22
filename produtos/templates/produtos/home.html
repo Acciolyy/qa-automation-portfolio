@@ -10,6 +10,8 @@
 <body>
     <h1>Olá, {{ user.username }}!</h1>
 
+    <p><a href="{% url 'produto_list' %}">Ver produtos</a></p>
+
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">Sair</button>

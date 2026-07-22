@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+</head>
+
+<body>
+    <h1>Produtos</h1>
+    <p><a href="{% url 'produto_create' %}">Novo produto</a></p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+                <th>Criado em</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto.nome }}</td>
+                <td>{{ produto.preco }}</td>
+                <td>{{ produto.estoque }}</td>
+                <td>{{ produto.criado_em }}</td>
+                <td>
+                    <a href="{% url 'produto_update' produto.pk %}">Editar</a>
+                    <a href="{% url 'produto_delete' produto.pk %}">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum produto cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{% url 'home' %}">Voltar para a home</a></p>
+
+</body>
+
+</html>
