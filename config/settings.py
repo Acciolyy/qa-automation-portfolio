@@ -122,3 +122,6 @@ STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL = 'home' # Depois de logar com sucesso
 LOGOUT_REDIRECT_URL = 'login' # Depois de deslogar
 LOGIN_URL = 'login' # Quando ocorre o tratamento de @login_required por acesso restrito para barrar acesso
+
+# Template de email para envio (por enquanto no console)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
