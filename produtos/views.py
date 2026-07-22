@@ -9,8 +9,12 @@ def home(request):
 
 @login_required
 def produto_list(request):
-    produtos = Produto.objects.all().order_by('-criado_em')
-    return render(request, 'produtos/produto_list.html', {'produtos': produtos})
+    q = request.GET.get('q', '')
+    produtos = Produto.objects.all()
+    if q:
+        produtos = produtos.filter(nome__icontains=q)
+    produtos = produtos.order_by('-criado_em')
+    return render(request, 'produtos/produto_list.html', {'produtos': produtos, 'q': q})
 
 @login_required
 def produto_create(request):
